@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# https://www.leboncoin.fr/collection/2226549042.htm
+# https://www.leboncoin.fr/collection/2226549042.htm                article au hasard pour faire les tests
 
 import sys
 import requests
