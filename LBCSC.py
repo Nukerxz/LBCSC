@@ -45,8 +45,15 @@ def fullscan():
         accept_cookies_button.click()
         html_source_code = page.content()
         soup = BeautifulSoup(html_source_code, 'html.parser')
-        for link in soup.find_all('img'):
-            print(link.get('src'))
+
+        # images and profile pic
+        images = []
+        for image in soup.find_all('img'):
+            images.append((image.get('src')))
+        for x in images:
+            if images.count(x) > 1:
+                images.remove(x)
+        print(*images, sep="\n")
         title = soup.find("h1", {"data-qa-id": "adview_title"})
         name = soup.find("a", {"class": "_3k87M _3Hrjq _3Wx6b _2MFch _1hnil _35DXM _1-TTU _1GcfX _2DyF8 _3k00F"})
         desc = soup.find("p", {"class": "sc-iQNlJl bCyjVl"})
