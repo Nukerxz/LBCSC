@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # https://www.leboncoin.fr/collection/2226549042.htm                article au hasard pour faire les tests
 
+import re
 import sys
 import requests
 import json
@@ -50,16 +51,21 @@ def fullscan():
         images = []
         for image in soup.find_all('img'):
             images.append((image.get('src')))
-        for x in images:
-            if images.count(x) > 1:
-                images.remove(x)
+        images = set(images)
+        images = list(images)
         print(*images, sep="\n")
         title = soup.find("h1", {"data-qa-id": "adview_title"})
+        title = str(title)
+        title = re.sub(r'<.+?>', '', title)
         name = soup.find("a", {"class": "_3k87M _3Hrjq _3Wx6b _2MFch _1hnil _35DXM _1-TTU _1GcfX _2DyF8 _3k00F"})
+        name = str(name)
+        name = re.sub(r'<.+?>', '', name)
         desc = soup.find("p", {"class": "sc-iQNlJl bCyjVl"})
-        print(title)
-        print(name)
-        print(desc)
+        desc = str(desc)
+        desc = re.sub(r'<.+?>', '', desc)
+        print("Nom de l'article : ",title)
+        print("Nom du vendeur : ",name)
+        print("Description de l'article : ",desc)
         # print(soup.prettify())              pour print l'entierete du html
         browser.close()  # a mettre en fin de code
 
