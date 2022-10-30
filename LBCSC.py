@@ -27,7 +27,6 @@ def scan():
             images.append((image.get('src')))
         images = set(images)
         images = list(images)
-        # print(*images, sep="\n") set a print le lien de chaque images
         c = 0
         for x in images:
             c += 1
@@ -58,7 +57,7 @@ def scan():
         if descchecking == "y" or descchecking == "Y":
             desccheck(desc)
 
-        # a mettre en fin de code
+        # fin des op
         browser.close()
         quit()
 
