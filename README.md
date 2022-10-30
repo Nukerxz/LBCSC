@@ -1,6 +1,6 @@
 # LBCSC - Le Bon Coin Scam Check
 
-Script python aidant a verifier si un article sur le bon coin est un scam ou non en vérifiant si les images et la description existent déjà et non sont pas originales.
+Script python aidant a verifier si un article sur leboncoin.fr est un scam ou non en vérifiant si les images et la description existent déjà et ne sont pas originales.
 Testé fonctionnel sur Debian / Kali Linux / Windows 10
 
 Installation :
