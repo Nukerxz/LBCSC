@@ -8,7 +8,7 @@ from playwright.sync_api import sync_playwright
 
 def scan():
     # url = input("Merci de coller votre lien LE BON COIN ici : "
-    url = "https://www.leboncoin.fr/collection/2226549042.htm"               # article au hasard pour faire les tests
+    url = "https://www.leboncoin.fr/collection/2226549042.htm"  # article au hasard pour faire les tests
     print("Scan en cours de la page {}".format(url))
     HEADLESS_MODE = True
 
@@ -57,6 +57,9 @@ def scan():
         desc = str(desc)
         desc = re.sub(r'<.+?>', '', desc)
         print("Description de l'article : ", desc)
+        descchecking = input("Voulez-vous vérifier si cette description existe autre part ? y or n : ")
+        if descchecking == "y":
+            desccheck(desc)
 
         # a mettre en fin de code
         browser.close()
@@ -88,6 +91,10 @@ def mainmenu():
 
 def imagecheck(imglink):
     webbrowser.open('http://www.google.com/searchbyimage?image_url={}'.format(imglink))
+
+
+def desccheck(desc):
+    webbrowser.open('https://www.google.com/search?q={}'.format(desc))
 
 
 mainmenu()
