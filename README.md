@@ -1,11 +1,12 @@
 # LBCSC
 
-Script python aidant a verifier si un article sur le bon coin est un scam ou non
+Script python aidant a verifier si un article sur le bon coin est un scam ou non en vérifiant si les images et la description existent déjà et non sont pas originales.
 
-Projet non fonctionnel pour l'instant
 
 Installation :
-python pip install -r requirements.txt
+1) python pip install -r requirements.txt
+2) playwright install
+
 
 Usage:
 python LBCSC.py
