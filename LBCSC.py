@@ -8,7 +8,7 @@ from playwright.sync_api import sync_playwright
 
 def scan():
     url = input("Merci de coller votre lien LE BON COIN ici : ")
-    print("Scan en cours de la page {}".format(url))
+    print("Scan en cours de la page {} Veuillez patienter.".format(url))
     HEADLESS_MODE = True
 
     with sync_playwright() as p:
@@ -28,16 +28,14 @@ def scan():
         images = set(images)
         images = list(images)
         # print(*images, sep="\n") set a print le lien de chaque images
-        co = 0
+        c = 0
         for x in images:
-            co += 1
-        print("{} images ont été détectées, voulez-vous vérifier si ces images existent déjà en ligne ?".format(co))
+            c += 1
+        print("{} images ont été détectées, voulez-vous vérifier si ces images existent déjà en ligne ?".format(c))
         imagerep = input("y or n ? :")
-        if imagerep == "y":
+        if imagerep == "y" or imagerep == "Y":
             for image in images:
                 imagecheck(image)
-        else:
-            pass
 
         # le titre de l'annonce
         title = soup.find("h1", {"data-qa-id": "adview_title"})
@@ -57,7 +55,7 @@ def scan():
         desc = re.sub(r'<.+?>', '', desc)
         print("Description de l'article : ", desc)
         descchecking = input("Voulez-vous vérifier si cette description existe autre part ? y or n : ")
-        if descchecking == "y":
+        if descchecking == "y" or descchecking == "Y":
             desccheck(desc)
 
         # a mettre en fin de code
@@ -67,14 +65,13 @@ def scan():
 
 def mainmenu():
     print("-----Le Bon Coin Scam Check-----")
-    print("1 : Full scan")
+    print("1 : Scan")
     print("2 : Help / Infos")
     print("3 : Exit")
     rep = input("")
     if rep == "1":
         scan()
     if rep == "2":
-        print("created by Nuker")
         print("Ce script a pour but de vous aider dans vos recherches en automatisant certaines actions, merci "
               "de faire remonter toutes remarques, suggestions ou bugs directement sur le github disponible : "
               "https://github.com/Nukerxz/LBCSC")
