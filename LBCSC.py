@@ -7,8 +7,7 @@ from playwright.sync_api import sync_playwright
 
 
 def scan():
-    # url = input("Merci de coller votre lien LE BON COIN ici : "
-    url = "https://www.leboncoin.fr/collection/2226549042.htm"  # article au hasard pour faire les tests
+    url = input("Merci de coller votre lien LE BON COIN ici : ")
     print("Scan en cours de la page {}".format(url))
     HEADLESS_MODE = True
 
